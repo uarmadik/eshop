@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductController implements the CRUD actions for Products model.
+ * ProductController implements the CRUD actions for Product model.
  */
 class ProductController extends AppAdminController
 {
@@ -30,7 +30,7 @@ class ProductController extends AppAdminController
 //    }
 
     /**
-     * Lists all Products models.
+     * Lists all Product models.
      * @return mixed
      */
     public function actionIndex()
@@ -45,7 +45,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Displays a single Products model.
+     * Displays a single Product model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,7 +58,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Creates a new Products model.
+     * Creates a new Product model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -76,7 +76,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Updates an existing Products model.
+     * Updates an existing Product model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Deletes an existing Products model.
+     * Deletes an existing Product model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,7 +110,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Finds the Products model based on its primary key value.
+     * Finds the Product model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return Products the loaded model
