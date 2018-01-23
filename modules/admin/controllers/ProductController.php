@@ -2,12 +2,20 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Category;
 use Yii;
 use app\modules\admin\models\Products;
+use yii\base\Exception;
 use yii\data\ActiveDataProvider;
+use yii\db\ActiveRecord;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
+use app\models\Image;
+use yii\web\UploadedFile;
+use yii\data\ArrayDataProvider;
+
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -35,6 +43,23 @@ class ProductController extends AppAdminController
      */
     public function actionIndex()
     {
+//        $images = Image::find()->all();
+//        var_dump($images);
+//        exit;
+
+        $categoryId = Yii::$app->request->get('category_id');
+        if (!empty($categoryId) && is_numeric($categoryId)) {
+
+            $dataProvider = new ActiveDataProvider([
+                'query' => Products::find()->where(['category_id' => $categoryId]),
+            ]);
+
+            return $this->render('index', [
+                'dataProvider' => $dataProvider,
+            ]);
+
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => Products::find(),
         ]);
@@ -52,8 +77,22 @@ class ProductController extends AppAdminController
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        $category = Category::findOne($model->category_id);
+
+        $images = Image::find()->where(['item_id' => $id])->asArray()->all();
+        $str = '';
+        foreach ($images as $image) {
+
+            $str .= '<img src="/web/uploads/store/item-'. $id .'/'. $image['fileName'] .'" width="180px"> ';
+        }
+
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'category' => $category->name,
+            'images' => $str,
         ]);
     }
 
@@ -86,12 +125,28 @@ class ProductController extends AppAdminController
     {
         $model = $this->findModel($id);
 
+        if (Yii::$app->request->isPost) {
+
+            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+
+            if (!$model->upload($model->id)) {
+
+                throw new Exception('Files did not uploaded.');
+            }
+        }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $images = Image::find()->asArray()->where(['item_id' => $model->id])->all();
+
+//        $categories = Category::
+
+
         return $this->render('update', [
-            'model' => $model,
+            'model'  => $model,
+            'images' => $images,
         ]);
     }
 
@@ -123,5 +178,69 @@ class ProductController extends AppAdminController
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionDeleteImage()
+    {
+        $imageId = Yii::$app->request->get('imageId');
+        if (!is_numeric($imageId)) {
+
+            throw new Exception('Incorrect parameter imageId');
+        }
+        $image = Image::findOne($imageId);
+
+        if (!$image) {
+
+            throw New Exception('There are not file with id = ' . $imageId);
+        }
+
+        $image->delete();
+
+        $imagePath = Yii::$app->basePath . '/web/uploads/store/item-' . $image->item_id . '/' . $image->fileName;
+        if (!is_file($imagePath)) {
+            throw new Exception('There are not file ' . $imagePath);
+        }
+
+        if (!unlink($imagePath)) {
+            throw new Exception('Error. File: '. $imagePath .' did not remove!');
+        }
+
+        return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+
+
+    }
+
+    public function actionSetMainStatus()
+    {
+        $imageId = Yii::$app->request->get('imageId');
+        $itemId = Yii::$app->request->get('itemId');
+        if (!is_numeric($imageId) && !is_numeric($itemId)) {
+
+            throw new Exception('Incorrect parameter $imageId or $imageId');
+        }
+
+        $images = Image::findAll(['item_id' => $itemId]);
+
+        foreach ($images as $image) {
+
+            if ($image->id == $imageId) {
+
+                $image->isMain = 1;
+                $image->save();
+
+            } elseif($image->isMain == 1) {
+
+                $image->isMain = 0;
+                $image->save();
+            }
+
+        }
+
+        return $this->redirect(['/admin/product/update', 'id' => $itemId]);
+    }
+
+    public function actionTest()
+    {
+        return 'TEST Ajax';
     }
 }

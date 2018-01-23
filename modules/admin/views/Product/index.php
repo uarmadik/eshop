@@ -9,6 +9,9 @@ use yii\grid\GridView;
 $this->title = 'Product';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div>
+    <a href="/admin/category">All Caterories</a>
+</div>
 <div class="products-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -27,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'url:url',
             'image',
             'description:ntext',
-            //'price',
-            //'category_id',
+            'price',
+            'category_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

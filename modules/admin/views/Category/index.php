@@ -23,7 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+//            'name',
+            [
+                'attribute' => 'name',
+                'value' => function ($data) {
+                    return HTML::a($data->name, ['/admin/product', 'category_id' => $data->id]);
+                },
+                'format' => 'raw',
+            ],
             'url:url',
             'parent_id',
 

@@ -52,8 +52,16 @@ class CategoryController extends AppAdminController
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        $parent = Category::findOne($model->parent_id);
+
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+//            'model' => $this->findModel($id),
+            'model' => $model,
+            'parent' => $parent->name,
+
         ]);
     }
 
@@ -86,9 +94,20 @@ class CategoryController extends AppAdminController
     {
         $model = $this->findModel($id);
 
+        if ($model->id == Yii::$app->request->post('Category')['parent_id']) {
+
+            Yii::$app->session->setFlash('error', 'Category cannot be parent category for itself !');
+            return $this->refresh();
+        }
+
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
+
+//        var_dump($model);
+//        exit;
 
         return $this->render('update', [
             'model' => $model,

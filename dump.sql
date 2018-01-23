@@ -45,3 +45,17 @@ INSERT INTO `products` VALUES
   (null, 'product-2', 'product2', null, null, 11, 1),
   (null, 'product-3', 'product3', null, null, 10, 2),
   (null, 'product-4', 'product4', null, null, 10, 3);
+
+
+-- Create table 'images'
+
+CREATE TABLE `images` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`filePath` VARCHAR(255) NOT NULL,
+	`item_id` INT(11) DEFAULT NULL,
+	`isMain` INT(1) DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=8;

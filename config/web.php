@@ -22,7 +22,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-//            'enableAutoLogin' => true,
+            'enableAutoLogin' => true,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -52,9 +52,12 @@ $config = [
             'rules' => [
                 [
                     'pattern' => '',
-                    'route'   => 'site/index',
+                    'route'   => 'main/index',
                     'suffix'  => '',
                 ],
+                '<category:\w+>' => 'main/product',
+                '<category:\w+>/<productId:\d+>' => 'main/product',
+
             ],
         ],
 

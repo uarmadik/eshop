@@ -10,4 +10,9 @@ class Products extends ActiveRecord
     {
         return 'products';
     }
+
+    public function getImages()
+    {
+        return $this->hasMany(Image::className(), ['item_id' => 'id']);
+    }
 }

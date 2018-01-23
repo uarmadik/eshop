@@ -1,11 +1,13 @@
+<li <?= (isset($category['childs'])) ? 'class="sub-menu"' : '' ?>>
 
-<li>
-    <a href="#">
-        <?= $category['name']?>
-        <?php if( isset($category['childs']) ): ?>
-<!--            <span class="badge pull-right"><i class="fa fa-plus"></i></span>-->
-        <?php endif;?>
-    </a>
+    <?php if (isset($category['childs'])): ?>
+        <span><?= $category['name'] ?></span>
+        <span class="menu_arrow"></span>
+    <?php else: ?>
+        <a href="/<?= $category['url'] ?>"><?= $category['name'] ?></a>
+    <?php endif; ?>
+
+
     <?php if( isset($category['childs']) ): ?>
         <ul>
             <?= $this->getMenuHtml($category['childs'])?>

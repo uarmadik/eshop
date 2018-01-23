@@ -12,6 +12,7 @@ class MenuWidget extends Widget
     public $tree;
     public $menuHtml;
     public $tpl;
+    public $model;
 
     public function init() {
 
