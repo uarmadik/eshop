@@ -7,6 +7,7 @@ namespace app\models;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 
+
 class Cart extends ActiveRecord
 {
     public function addToCart($product, $qty = 1)
@@ -19,6 +20,7 @@ class Cart extends ActiveRecord
                 'name' => $product->name,
                 'price' => $product->price,
                 'image' => $product->image,
+                'product_url' => $product->url,
             ];
         }
 
