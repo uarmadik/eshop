@@ -1,0 +1,316 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    /*padding: 70px 15px 20px;*/
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+
+/* MENU */
+
+
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');*/
+/*@import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css');*/
+body {
+    color: #5D5F63;
+    /*background: #293949;*/
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+    padding-top: 55px;
+}
+.sidebar-toggle {
+    margin-left: -240px;
+}
+.sidebar {
+    width: 240px;
+    height: 100%;
+    background: #293949;
+    /*position: absolute;*/
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+}
+.sidebar #leftside-navigation ul,
+.sidebar #leftside-navigation ul ul {
+    margin: -2px 0 0;
+    padding: 0;
+}
+.sidebar #leftside-navigation ul li {
+    list-style-type: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar #leftside-navigation ul li.active > a {
+    color: #1abc9c;
+}
+.sidebar #leftside-navigation ul li.active ul {
+    display: block;
+}
+.sidebar #leftside-navigation ul li a {
+    color: #aeb2b7;
+    text-decoration: none;
+    display: block;
+    padding: 18px 0 18px 25px;
+    font-size: 12px;
+    outline: 0;
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+}
+.sidebar #leftside-navigation ul li a:hover {
+    color: #1abc9c;
+}
+.sidebar #leftside-navigation ul li a span {
+    display: inline-block;
+}
+
+.sidebar #leftside-navigation ul .sub-menu {
+    /*padding: 18px 0 18px 25px;*/
+    color: #aeb2b7;
+    font-size: 12px;
+    position: relative;
+}
+
+.sidebar #leftside-navigation ul .sub-menu > span {
+    padding: 18px 0 18px 25px;
+    display: block;
+}
+
+.sidebar #leftside-navigation ul .sub-menu  .menu_arrow {
+    padding: 0;
+    display: block;
+    content: '';
+    border: 6px solid transparent;
+    border-top: 6px solid #ccc;
+    position: absolute;
+    right: 5px;
+    top: 25px;
+
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+
+
+.sidebar #leftside-navigation ul li a i {
+    width: 20px;
+}
+.sidebar #leftside-navigation ul li a i .fa-angle-left,
+.sidebar #leftside-navigation ul li a i .fa-angle-right {
+    padding-top: 3px;
+}
+.sidebar #leftside-navigation ul ul {
+    display: none;
+}
+.sidebar #leftside-navigation ul ul li {
+    background: #23313f;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 10px;
+
+    border-bottom: none;
+}
+.sidebar #leftside-navigation ul ul li a {
+    font-size: 12px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    color: #aeb2b7;
+}
+
+/* /MENU */
+
+
+/* HEADER */
+
+header {
+    background-color: #ccc;
+    height: 50px;
+}
+
+/* /HEADER */
+
+
+/* item card */
+
+    .item_card {
+        width: 250px;
+        margin: .5em auto;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 6px #ccc;
+
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    .item_card:hover {
+        border-color: #293949;
+        box-shadow: 0 0 6px #293949;
+    }
+
+        .item_card__img img{
+            width: 100%;
+        }
+
+        a.item_card__buy {
+            display: block;
+            width: 50px;
+            margin: 0.5em;
+            padding: 0.5em 0;
+            border: 1px solid #222;
+            border-radius: 0.2em;
+            text-decoration: none;
+            text-align: center;
+            background-color: coral;
+            color: darkred;
+            font-weight: bold;
+
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+        a.item_card__buy:hover {
+            text-decoration: none;
+            background-color: #ccc;
+        }
+
+        .item_card a h1 {
+            text-align: center;
+            text-decoration: none;
+        }
+
+
+/* /item card */
+
+
+/* Cart */
+    #cart .del-item {
+        cursor: pointer;
+    }
+
+/* /Cart */
