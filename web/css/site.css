@@ -243,11 +243,45 @@ body {
 
 
 /* HEADER */
+.header-wrap {
+    width: 100%;
 
-header {
-    background-color: #ccc;
-    height: 50px;
+    border: 1px solid #1abc9c;
 }
+    header {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+        background-color: #ccc;
+        height: 50px;
+    }
+
+        .shoppingCart {
+            position: relative;
+
+        }
+            .shoppingCart img {
+                margin-right: 25px;
+            }
+            .shoppingCart span {
+                display: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 1px solid #3a87ad;
+                background-color: #2b669a;
+                color: #fff;
+                position: absolute;
+                text-align: center;
+                line-height: 20px;
+                right: 0;
+                top: -5px;
+                font-weight: bold;
+            }
 
 /* /HEADER */
 
