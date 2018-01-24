@@ -77,9 +77,11 @@ $(document).ready(function() {
                 console.log('cart qty = ' + result);
                 var value;
                 if (result > 0) {
-                    value = ' (' + result + ')';
+                    value = result;
+                    $('#openCart span').css('display', 'block');
                 } else {
                     value = '';
+                    $('#openCart span').css('display', 'none');
                 }
                 $('#openCart span').html(value);
             },

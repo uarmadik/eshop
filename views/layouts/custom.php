@@ -35,6 +35,15 @@ CustomAsset::register($this);
 <!--    </div>-->
 <!--</header>-->
 
+<div class="header-wrap">
+    <header>
+        <div class="logo"><img src="/web/img/logo_placeholder.png" alt="logo placeholder" height="50px"></div>
+        <div class="shoppingCart">
+            <a href="#" id="openCart"><img src="/web/img/shopping-cart.png" alt="shopping cart" title="Корзина"><span></span></a>
+        </div>
+    </header>
+</div>
+
 <div class="wrap">
 
 
@@ -46,7 +55,7 @@ CustomAsset::register($this);
             <?= Alert::widget() ?>
         </div>
         <div class="row">
-            <a href="#" id="openCart" ">Корзина <span></span></a>
+<!--            <a href="#" id="openCart" ">Корзина <span></span></a>-->
             <div class="col-xs-12 col-md-4">
                 <aside class="sidebar">
                     <div id="leftside-navigation" class="nano">
