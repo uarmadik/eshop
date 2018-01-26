@@ -4,25 +4,12 @@ use yii\db\ActiveRecord;
 
 ?>
 
+
+
 <div class="row">
-    <div class="col-xs-12 col-md-3">
-<!--        <aside class="sidebar">-->
-<!--            <div id="leftside-navigation" class="nano">-->
-<!--                <ul class="nano-content">-->
-<!--                    --><?//= MenuWidget::widget(['tpl' => 'menu']) ?>
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </aside>-->
-    </div>
-    <div class="col-xs-12 col-md-9">
-        <?php if (!$products): ?>
-            <h1>There are not items yet!</h1>
-        <?php else: ?>
-            <?php foreach ($products as $product) { ?>
-                <h1><?= $product['name']?></h1>
-            <?php } ?>
-        <?php endif; ?>
-    </div>
+
+
+123
 </div>
 
 

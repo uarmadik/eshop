@@ -1,0 +1,83 @@
+/* Custom SLIDER */
+
+#slider {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.mainImage {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+    .mainImage img {
+        height: 100%;
+    }
+
+.carousel {
+    position: relative;
+    width: 300px;
+    padding: 10px 40px;
+    border: 1px solid #CCC;
+}
+
+.carousel img {
+    width: 75px;
+    /*height: 75px;*/
+    margin-right: 4px;
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 35px;
+}
+
+.arrow:focus {
+    outline: none;
+}
+
+.arrow:hover {
+
+    cursor: pointer;
+}
+
+.prev {
+    left: 4px;
+    background-image: url("/web/img/left-arrow.png");
+}
+
+.next {
+    right: 4px;
+    background-image: url("/web/img/right-arrow.png");
+}
+
+.gallery {
+    width: 225px;
+    overflow: hidden;
+}
+
+.gallery ul {
+    height: 75px;
+    width: 9999px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: margin-left 250ms;
+    /* remove white-space between inline-block'ed li */
+    /* http://davidwalsh.name/remove-whitespace-inline-block */
+
+    font-size: 0;
+}
+
+.gallery li {
+    display: inline-block;
+}
+
+
+/* /Custom SLIDER */
