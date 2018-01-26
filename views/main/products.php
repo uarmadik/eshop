@@ -12,15 +12,13 @@ use yii\helpers\Html;
         <?php foreach ($products as $product) { ?>
 
 
-
-
-
             <div class="item_card">
                 <a href="/<?= $category .'/'. $product['id'] ?>">
                     <div class="item_card__img">
                         <?php
 
                             $image = $product->getImages()->where(['isMain' => 1])->one();
+
                             if ($image) {
 
                                 $mainImagePath = '/web/uploads/store/item-'. $product['id'] . '/' . $image->fileName;

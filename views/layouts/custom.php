@@ -37,7 +37,11 @@ CustomAsset::register($this);
 
 <div class="header-wrap">
     <header>
-        <div class="logo"><img src="/web/img/logo_placeholder.png" alt="logo placeholder" height="50px"></div>
+        <div class="logo">
+            <a href="/">
+                <img src="/web/img/logo_placeholder.png" alt="logo placeholder" height="50px">
+            </a>
+        </div>
         <div class="shoppingCart">
             <a href="#" id="openCart"><img src="/web/img/shopping-cart.png" alt="shopping cart" title="Корзина"><span></span></a>
         </div>
@@ -56,7 +60,7 @@ CustomAsset::register($this);
         </div>
         <div class="row">
 <!--            <a href="#" id="openCart" ">Корзина <span></span></a>-->
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-4">
                 <aside class="sidebar">
                     <div id="leftside-navigation" class="nano">
                         <ul class="nano-content">
@@ -66,7 +70,7 @@ CustomAsset::register($this);
                 </aside>
             </div>
 
-            <div class="col-xs-12 col-md-8">
+            <div class="col-xs-12 col-sm-6 col-md-8">
                 <?= $content ?>
             </div>
 

@@ -107,18 +107,24 @@ class CartController extends Controller
             if ($order->save()) {
 
                 $this->saveOrderItems($session['cart'], $order->id);
-                Yii::$app->session->setFlash('success', 'Ваше замовлення прийнято, менеджер зв’яжеться з вами у найближчий час');
 
-                Yii::$app->mailer->compose('order', ['session' => $session])
+                Yii::$app->mailer->compose('order', ['session' => $session, 'order' => $order])
                     ->setFrom(['igor_ok1989@ukr.net' => 'eshop.loc'])
                     ->setTo($order->email)
-                    ->setSubject('Заказ...')
+                    ->setSubject('Замовлення № ' . $order->id)
+                    ->send();
+
+                Yii::$app->mailer->compose('order-admin', ['session' => $session, 'order' => $order])
+                    ->setFrom(['igor_ok1989@ukr.net' => 'eshop.loc'])
+                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setSubject('New order № ' . $order->id)
                     ->send();
 
                 $session->remove('cart');
                 $session->remove('cart.qty');
                 $session->remove('cart.sum');
 
+                Yii::$app->session->setFlash('success', 'Ваше замовлення прийнято, менеджер зв’яжеться з вами у найближчий час');
                 return $this->refresh();
             } else {
                 Yii::$app->session->setFlash('error', 'помилка оформлення замовлення');
