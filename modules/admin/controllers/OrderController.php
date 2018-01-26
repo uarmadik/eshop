@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\OrderItems;
 use Yii;
 use app\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;

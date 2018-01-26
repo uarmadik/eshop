@@ -14,7 +14,7 @@ body {
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
+    margin: 0 auto;
     padding: 0 0 60px;
 }
 
@@ -307,6 +307,7 @@ body {
         margin: .5em auto;
         border: 1px solid #ccc;
         box-shadow: 0 0 6px #ccc;
+        background-color: #f7f7f7;
 
         -webkit-transition: all 0.2s;
         -moz-transition: all 0.2s;
@@ -318,6 +319,13 @@ body {
         border-color: #293949;
         box-shadow: 0 0 6px #293949;
     }
+        .item_card a:hover {
+            text-decoration: none;
+        }
+
+        .item_card img {
+            width: 100%;
+        }
 
         .item_card__img img{
             width: 100%;
@@ -325,15 +333,12 @@ body {
 
         a.item_card__buy {
             display: block;
-            width: 50px;
-            margin: 0.5em;
             padding: 0.5em 0;
             border: 1px solid #222;
-            border-radius: 0.2em;
+            background-color: #89b3c8;
+            color: #fff;
             text-decoration: none;
             text-align: center;
-            background-color: coral;
-            color: darkred;
             font-weight: bold;
 
             -webkit-transition: all 0.2s;
@@ -344,10 +349,11 @@ body {
         }
         a.item_card__buy:hover {
             text-decoration: none;
-            background-color: #ccc;
+            background-color: #1b6d85;
         }
 
         .item_card a h1 {
+            font-size: 1.5em;
             text-align: center;
             text-decoration: none;
         }
@@ -403,3 +409,8 @@ body {
 
 
 
+@media (max-width: 540px) {
+    .item_card {
+        width: auto;
+    }
+}

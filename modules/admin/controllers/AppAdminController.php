@@ -12,6 +12,8 @@ use app\models\LoginForm;
 class AppAdminController extends Controller
 {
 
+    public $layout = 'admin';
+
     public function behaviors()
     {
         return [

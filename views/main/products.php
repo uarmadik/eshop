@@ -8,10 +8,9 @@ use yii\helpers\Html;
     <?php if (!$products): ?>
         <h1>There are not items yet!</h1>
     <?php else: ?>
-    <div class="col-xs-12 col-md-6">
+
         <?php foreach ($products as $product) { ?>
-
-
+        <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="item_card">
                 <a href="/<?= $category .'/'. $product['id'] ?>">
                     <div class="item_card__img">
@@ -42,10 +41,11 @@ use yii\helpers\Html;
                     <p>Price: <b><?= $product['price'] ?></b></p>
                 </div>
 <!--                <a href="/cart/add" class="item_card__buy">Add to cart</a>-->
-                <?= Html::a('Add to cart', ['/cart/add', 'id' => $product['id']], ['class' => 'add_to_cart', 'data-id' => $product['id']]) ?>
+                <?= Html::a('Add to cart', ['/cart/add', 'id' => $product['id']], ['class' => 'item_card__buy', 'data-id' => $product['id']]) ?>
             </div>
+        </div>
         <?php } ?>
-    </div>
+
     <?php endif; ?>
 
 </div>

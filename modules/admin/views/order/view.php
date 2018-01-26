@@ -35,12 +35,48 @@ $this->params['breadcrumbs'][] = 'Замовлення № ' . $model->id;
             'updated_at',
             'qty',
             'sum',
-            'status',
+//            'status',
+            [
+                'attribute' => 'status',
+                'value' => function($data) {
+                    return (!$data->status) ? '<span class="text-success">Активно</span>' : '<span class="text-danger">Заверно</span>';
+                },
+                'format' => 'html',
+            ],
+
             'name',
             'email:email',
             'phone',
             'address',
         ],
     ]) ?>
+
+    <?php $items = $model->orderItems;?>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Наименование</th>
+                <th>Кол-во</th>
+                <th>Цена</th>
+                <th>Сумма</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($items as $item):?>
+
+
+
+                <tr>
+                    <td><a href="<?= \yii\helpers\Url::to(['/admin/product/view', 'id' => $item->product_id])?>"><?= $item['name']?></a></td>
+                    <td><?= $item['qty_item']?></td>
+                    <td><?= $item['price']?></td>
+                    <td><?= $item['sum_item']?></td>
+                </tr>
+            <?php endforeach?>
+            </tbody>
+        </table>
+    </div>
 
 </div>
