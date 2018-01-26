@@ -66,6 +66,3 @@ $this->params['breadcrumbs'][] = 'Update';
     <?php } ?>
     </table>
 </div>
-
-<input type="checkbox" aria-label="Checkbox for following text input">
-<input type="checkbox" checked>

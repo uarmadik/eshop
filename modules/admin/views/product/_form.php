@@ -52,5 +52,3 @@ use app\components\MenuWidget;
     <?php ActiveForm::end(); ?>
 
 </div>
-
-<a href="#" id="testAjax">Tets AJAX</a>
