@@ -127,7 +127,7 @@ class CartController extends Controller
                 Yii::$app->session->setFlash('success', 'Ваше замовлення прийнято, менеджер зв’яжеться з вами у найближчий час');
                 return $this->refresh();
             } else {
-                Yii::$app->session->setFlash('error', 'помилка оформлення замовлення');
+                Yii::$app->session->setFlash('error', 'Помилка оформлення замовлення');
                 return $this->refresh();
             }
 

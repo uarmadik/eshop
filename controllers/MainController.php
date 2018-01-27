@@ -14,13 +14,15 @@ class MainController extends Controller
 
     public function actionIndex()
     {
-        $products = Products::find()->asArray()->all();
+		        $products = Products::find()->asArray()->all();
 //        var_dump($products);
 
 
 
         $images = Image::find()->where(['item_id' => '8'])->asArray()->all();
 
+
+		
         return $this->render('index', [
                                                 'products' => $products,
                                                 'images' => $images,
@@ -45,7 +47,11 @@ class MainController extends Controller
 //            var_dump($images);
 //            exit;
 
-            return $this->render('product', ['product' => $product, 'images' => $images]);
+            return $this->render('product', [
+                                                    'product' => $product,
+                                                    'images' => $images,
+                                                    'category' => $categoryModel,
+                                                  ]);
 
 
         }
@@ -54,7 +60,7 @@ class MainController extends Controller
         $products = Products::find()->where(['category_id' => $categoryModel->id])->all();
 
 
-        return $this->render('products', ['products' => $products , 'category' => $category]);
+        return $this->render('products', ['products' => $products , 'category' => $categoryModel]);
     }
 
 }

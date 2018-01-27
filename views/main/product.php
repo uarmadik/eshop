@@ -1,6 +1,9 @@
 <?php
 use yii\helpers\Html;
 
+$this->params['breadcrumbs'][] = ['label' => $category->name, 'url' => '/' . $category->url];
+$this->params['breadcrumbs'][] = $product->name;
+
 $this->registerJsFile('/web/js/carousel.js');
 $this->registerCssFile('/web/css/carousel.css');
 

@@ -97,7 +97,7 @@ $(document).ready(function() {
 
     getCartQty();
 
-    $('.add_to_cart').on('click', function (e) {
+    $('.item_card__buy').on('click', function (e) {
         e.preventDefault();
         var id = $(this).data('id');
         var qty = $('#productQty').val();
