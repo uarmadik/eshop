@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-
+$this->params['breadcrumbs'][] = ['label' => $category->name, 'url' => $category->url];
 ?>
 
 <div class="row">
@@ -10,9 +10,9 @@ use yii\helpers\Html;
     <?php else: ?>
 
         <?php foreach ($products as $product) { ?>
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
             <div class="item_card">
-                <a href="/<?= $category .'/'. $product['id'] ?>">
+                <a href="/<?= $category->url .'/'. $product['id'] ?>">
                     <div class="item_card__img">
                         <?php
 
@@ -34,7 +34,7 @@ use yii\helpers\Html;
                     </div>
                 </a>
 
-                <a href="/<?= $category .'/'. $product['id'] ?>">
+                <a href="/<?= $category->url .'/'. $product['id'] ?>">
                     <h1><?= $product['name'] ?></h1>
                 </a>
                 <div class="item_card__price">
@@ -49,7 +49,6 @@ use yii\helpers\Html;
     <?php endif; ?>
 
 </div>
-
 
 
 

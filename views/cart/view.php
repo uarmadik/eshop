@@ -3,10 +3,12 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-
+use app\widgets\Alert;
 ?>
 
 <div class="container">
+    <?= Alert::widget() ?>
+
     <?php if(!empty($session['cart'])): ?>
         <div class="table-responsive">
             <table class="table table-hover table-striped">
@@ -55,3 +57,5 @@ use yii\widgets\ActiveForm;
     <?php endif;?>
 
 </div>
+
+

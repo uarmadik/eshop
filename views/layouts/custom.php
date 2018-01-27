@@ -11,7 +11,6 @@ use app\components\MenuWidget;
 use yii\bootstrap\Modal;
 
 CustomAsset::register($this);
-
 ?>
 
 <?php $this->beginPage() ?>
@@ -54,6 +53,7 @@ CustomAsset::register($this);
     <div class="container">
         <div class="row">
             <?= Breadcrumbs::widget([
+                'homeLink' => ['label' => 'Головна', 'url' => '/'],
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
             <?= Alert::widget() ?>
@@ -92,10 +92,9 @@ CustomAsset::register($this);
         'header' => '<h2>Корзина</h2>',
         'id' => 'cart',
         'size' => 'modal-lg',
-        'footer' => '
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Продовжити</button>
-                    <a href="'. Url::to(['cart/view']) .'" type="button" class="btn btn-success">Оформити</a>
-                    <button id="cart_clear" type="button" class="btn btn-danger">Очистить корзину</button>',
+        'footer' => '<button id="cart_clear" type="button" class="btn btn-danger">Очистить корзину</button>
+                     <button type="button" class="btn btn-primary" data-dismiss="modal">Продовжити</button>
+                     <a href="'. Url::to(['cart/view']) .'" type="button" class="btn btn-success">Оформити</a>',
     ]);
     Modal::end();
 ?>
