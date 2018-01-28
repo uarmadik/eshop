@@ -30,10 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'url:text',
-            'image',
+//            'url:text',
+//            'image',
             'description:raw',
             'price',
+            [
+                'attribute' => 'isHit',
+                'value' => function($data) {
+                    return ($data->isHit) ? '<span style="color: green">Yes</span>' : '<span style="color: red">No</span>';
+                },
+                'format' => 'html',
+            ],
 //            'category_id',
             [
                 'label' => 'Category',

@@ -70,12 +70,13 @@ ADMIN PANEL
     <div class="container">
         <div class="row">
             <?= Breadcrumbs::widget([
+                'homeLink' => ['label' => 'Admin', 'url' => '/admin/'],
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
             <?= Alert::widget() ?>
         </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="col-xs-12">
                 <?= $content ?>
 
 

@@ -1,18 +1,23 @@
 <?php
 
 use yii\helpers\Html;
+$this->title = 'eshop | search "' . Html::encode($searchQuery) . '"';
 
+$this->params['breadcrumbs'][] = 'Search: "' . Html::encode($searchQuery) . '"';
 ?>
 
 <div class="row">
     <?php if (!$products): ?>
-        <h1>There are not items yet!</h1>
+        <div class="alert alert-info" role="alert">
+            <p>Нічого не знайдено по запиту: "<b><?= Html::encode($searchQuery) ?></b>"</p>
+        </div>
+
     <?php else: ?>
 
         <?php foreach ($products as $product) { ?>
 
             <?php
-                $category = \app\models\Category::findOne($product->category_id);
+            $category = \app\models\Category::findOne($product->category_id);
 
             ?>
 
@@ -52,6 +57,17 @@ use yii\helpers\Html;
             </div>
         <?php } ?>
 
-    <?php endif; ?>
+
+<div class="row">
+    <div class="col-xs-12" style="text-align: center">
+        <?php
+        echo \yii\widgets\LinkPager::widget([
+            'pagination' => $pages,
+        ]);
+        ?>
+    </div>
+</div>
+
+<?php endif; ?>
 
 </div>

@@ -25,30 +25,31 @@ CustomAsset::register($this);
     <?php $this->head() ?>
 
 </head>
-<body>
+
 <?php $this->beginBody() ?>
-
-<!--<header class="fixed-top">-->
-<!--    <div class="container">-->
-<!--        header-->
-<!--    </div>-->
-<!--</header>-->
-
-<div class="header-wrap">
-    <header>
-        <div class="logo">
-            <a href="/">
-                <img src="/web/img/logo_placeholder.png" alt="logo placeholder" height="50px">
-            </a>
-        </div>
-        <div class="shoppingCart">
-            <a href="#" id="openCart"><img src="/web/img/shopping-cart.png" alt="shopping cart" title="Корзина"><span></span></a>
-        </div>
-    </header>
-</div>
-
 <div class="wrap">
 
+    <div class="header-wrap">
+        <header>
+            <div class="logo">
+                <a href="/">
+                    <img src="/web/img/logo_placeholder.png" alt="logo placeholder" height="50px">
+                </a>
+            </div>
+            <div class="header_cart-search">
+                <div class="search">
+                    <form action="/search" type="GET">
+                        <input type="search" name="query" placeholder="Search" />
+                        <button></button>
+                    </form>
+                </div>
+                <div class="shoppingCart">
+                    <a href="#" id="openCart"><img src="/web/img/shopping-cart.png" alt="shopping cart" title="Корзина"><span></span></a>
+                </div>
+            </div>
+
+        </header>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -59,7 +60,6 @@ CustomAsset::register($this);
             <?= Alert::widget() ?>
         </div>
         <div class="row">
-<!--            <a href="#" id="openCart" ">Корзина <span></span></a>-->
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <aside class="sidebar">
                     <div id="leftside-navigation" class="nano">
@@ -77,11 +77,11 @@ CustomAsset::register($this);
     </div>
 </div>
 
-<footer class="footer fixed-bottom">
+<footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><a href="https://www.work.ua/ua/resumes/3965513/" target="_blank">Ihor Harmider</a></p>
     </div>
 </footer>
 

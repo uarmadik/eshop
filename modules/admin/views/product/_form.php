@@ -34,6 +34,8 @@ use app\components\MenuWidget;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
+    <?= $form->field($model, 'isHit')->dropDownList(['1' => 'Yes', '0' => 'No']) ?>
+
 <!--    --><?//= $form->field($model, 'category_id')->textInput() ?>
 
     <div class="form-group field-product-category_id has-success">

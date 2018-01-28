@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Category;
 use app\models\Image;
 use app\models\Products;
+use yii\data\Pagination;
 use yii\web\Controller;
 use Yii;
 
@@ -14,20 +15,9 @@ class MainController extends Controller
 
     public function actionIndex()
     {
-		        $products = Products::find()->asArray()->all();
-//        var_dump($products);
+        $products = Products::find()->where(['isHit' => '1'])->all();
 
-
-
-        $images = Image::find()->where(['item_id' => '8'])->asArray()->all();
-
-
-		
-        return $this->render('index', [
-                                                'products' => $products,
-                                                'images' => $images,
-                                            ]);
-
+        return $this->render('index', ['products' => $products]);
     }
 
     public function actionProduct($category = null, $productId = null)
@@ -61,6 +51,26 @@ class MainController extends Controller
 
 
         return $this->render('products', ['products' => $products , 'category' => $categoryModel]);
+    }
+
+    public function actionSearch()
+    {
+        $searchQuery = trim(Yii::$app->request->get('query'));
+        if (empty($searchQuery)) {
+
+            return $this->render('search');
+        }
+
+        $query = Products::find()->where(['like', 'name', $searchQuery]);
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => 4,
+            'forcePageParam' => false,
+            'pageSizeParam' => false
+        ]);
+        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+
+        return $this->render('search', compact('products', 'pages', 'searchQuery'));
     }
 
 }

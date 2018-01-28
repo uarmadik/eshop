@@ -52,7 +52,7 @@ foreach ($images as $image) {
     <div class="col-xs-12 product-bottom-line">
 
         <div class="price">
-            <p>Ціна: <b><?= $product->price ?></b> грн</p>
+            <p>Ціна: <b><?= ($product->price) ? $product->price . 'грн' : 'ціна уточнюється...' ?></b></p>
         </div>
         <div class="quantity">
             <label for="productQty">Кількість</label>

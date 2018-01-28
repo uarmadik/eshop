@@ -59,8 +59,8 @@ $this->params['breadcrumbs'][] = 'Update';
 //                     echo Html::a('Make it main image', ['/admin/product/delete-image', 'imageId' => $image['id']], ['class' => 'btn btn-warning']);
 //                    echo Html::a('Delete', ['/admin/product/delete-image', 'imageId' => $image['id']], ['class' => 'btn btn-danger']);
 //                ?>
-                <div><?= Html::a('Make it main image', ['/admin/product/set-main-status', 'imageId' => $image['id'], 'itemId' => $image['item_id']], ['class' => 'btn btn-warning']); ?></div>
-                <div><?= Html::a('Delete', ['/admin/product/delete-image', 'imageId' => $image['id']], ['class' => 'btn btn-danger']); ?></div>
+                <div style="margin: 5px"><?= Html::a('Make this main picture', ['/admin/product/set-main-status', 'imageId' => $image['id'], 'itemId' => $image['item_id']], ['class' => 'btn btn-warning']); ?></div>
+                <div style="margin: 5px"><?= Html::a('Delete', ['/admin/product/delete-image', 'imageId' => $image['id']], ['class' => 'btn btn-danger']); ?></div>
             </td>
         </tr>
     <?php } ?>

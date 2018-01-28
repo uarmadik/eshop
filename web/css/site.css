@@ -1,18 +1,19 @@
 html,
 body {
     height: 100%;
+    margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+    /*display: flex;*/
+    /*flex-direction: column;*/
 }
 
 
 
 
 .wrap {
-    min-height: 100%;
+    min-height: 100vh;
     height: auto;
     margin: 0 auto;
     padding: 0 0 60px;
@@ -253,7 +254,7 @@ body {
 .header-wrap {
     width: 100%;
 
-    border: 1px solid #1abc9c;
+    background-color: #f0c291;
     margin-bottom: 10px;
 }
     header {
@@ -264,9 +265,15 @@ body {
         justify-content: space-around;
         align-items: center;
         margin: 0 auto;
-        background-color: #ccc;
         height: 50px;
     }
+
+    .header_cart-search {
+        display: flex;
+        flex-direction: row;
+
+    }
+
 
         .shoppingCart {
             position: relative;
@@ -296,6 +303,68 @@ body {
                 top: -5px;
                 font-weight: bold;
             }
+
+    /* Search block */
+
+.search {
+    width: 200px;
+}
+
+input[type=search] {
+    background: #fefefe;
+    padding-left:.4em;
+    padding-right: 30px;
+    border: 1px solid teal;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    color: teal;
+    transition: .5s ease-in-out;
+    -webkit-appearance: none;
+    background-color: rgba(255,255,255, .5);
+}
+input:focus {
+    width: 80%;
+    border-radius: 5px;
+    background-color: #fff;
+}
+button {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    padding: 0;
+    margin-left: -30px;
+    border: 0;
+    background: none;
+    opacity: .6;
+    transition: .5s ease-in-out;
+    vertical-align: bottom;
+}
+input:focus + button {
+    opacity: 1;
+}
+button:after, button:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid teal;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+button:before {
+    content: "";
+    width: 0;
+    height: 7px;
+    border-radius: 0 0 1px 1px;
+    transform: rotate(-45deg);
+    left: 12px;
+    top: 13px;
+}
+
+
+    /* /Search block */
 
 /* /HEADER */
 
@@ -330,10 +399,15 @@ body {
             align-items: center;
             justify-content: center;
             background-color: #ccc;
+            overflow: hidden;
         }
 
         .item_card__img img{
             width: 100%;
+        }
+
+        .item_card__price {
+            margin-left: 5px;
         }
 
         a.item_card__buy {
@@ -379,7 +453,6 @@ body {
 
 .price p {
     background-color: lightgreen;
-    width: 130px;
     padding: .5em 1em;
 }
 
@@ -398,7 +471,6 @@ body {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center;
 
     padding: 0.5em 0;
 

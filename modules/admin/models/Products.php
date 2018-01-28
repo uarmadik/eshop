@@ -23,6 +23,7 @@ class Products extends \yii\db\ActiveRecord
 {
     public $imageFiles;
 
+
     /**
      * @inheritdoc
      */
@@ -39,9 +40,9 @@ class Products extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['description'], 'string'],
-            [['price', 'category_id'], 'integer'],
+            [['price', 'category_id', 'isHit'], 'integer'],
             [['name', 'url', 'image'], 'string', 'max' => 255],
-            [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 4],
+            [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 4],
         ];
     }
 
