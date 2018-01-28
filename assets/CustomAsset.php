@@ -12,16 +12,12 @@ class CustomAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-//        'css/bootstrap.css',
         'css/jquery-ui.css',
-        'css/gallery.css',
     ];
     public $js = [
 //        'js/bootstrap.bundle.js',
         'js/admin.js',
         'js/jquery-ui.js',
-        'js/gallery.js',
-        'js/hammer.min.js',
         'js/main.js',
 
     ];

@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = ['label' => $category->name, 'url' => $category
                     <h1><?= $product['name'] ?></h1>
                 </a>
                 <div class="item_card__price">
-                    <p>Price: <b><?= $product['price'] ?></b></p>
+                    <p>Price: <b><?= ($product->price) ? $product->price . 'грн' : 'ціна уточнюється...' ?></b></p>
                 </div>
 <!--                <a href="/cart/add" class="item_card__buy">Add to cart</a>-->
                 <?= Html::a('Add to cart', ['/cart/add', 'id' => $product['id']], ['class' => 'item_card__buy', 'data-id' => $product['id']]) ?>

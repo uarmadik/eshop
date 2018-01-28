@@ -35,9 +35,9 @@ $(document).ready(function() {
 
 
     // gallery
-    $(function () {
-        $('.gallery').gallery();
-    });
+    // $(function () {
+    //     $('.gallery').gallery();
+    // });
 
     // cart
     
@@ -97,7 +97,7 @@ $(document).ready(function() {
 
     getCartQty();
 
-    $('.item_card__buy').on('click', function (e) {
+    $('.add_to_cart').on('click', function (e) {
         e.preventDefault();
         var id = $(this).data('id');
         var qty = $('#productQty').val();
