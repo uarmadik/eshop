@@ -18,9 +18,9 @@ $this->params['breadcrumbs'][] = ['label' => $category->name, 'url' => $category
 
                             $image = $product->getImages()->where(['isMain' => 1])->one();
 
-                            if ($image) {
+                            if ($product->mainImage) {
 
-                                $mainImagePath = '/web/uploads/store/item-'. $product['id'] . '/' . $image->fileName;
+                                $mainImagePath = '/web/uploads/store/item-'. $product['id'] . '/' . $product->mainImage;
                                 $alt = $product['name'];
                             } else {
 

@@ -6,6 +6,8 @@ use yii\db\ActiveRecord;
 
 class Products extends ActiveRecord
 {
+    public $mainImage;
+
     public static function tableName()
     {
         return 'products';
