@@ -49,6 +49,14 @@ class MainController extends Controller
 //        $products = Products::find()->where(['category_id' => $categoryModel->id])->asArray()->all();
         $products = Products::find()->where(['category_id' => $categoryModel->id])->all();
 
+        foreach ($products as $product) {
+
+            $mainImage = Image::findOne(['item_id' => $product->id, 'isMain' => 1]);
+            if (!empty($mainImage)) {
+
+                $product->mainImage = $mainImage->fileName;
+            }
+        }
 
         return $this->render('products', ['products' => $products , 'category' => $categoryModel]);
     }
