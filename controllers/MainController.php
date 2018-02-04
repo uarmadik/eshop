@@ -15,7 +15,14 @@ class MainController extends Controller
 
     public function actionIndex()
     {
+        $products = Yii::$app->cache->get('hitProducts');
+        if ($products) {
+
+            return $this->render('index', ['products' => $products]);
+        }
+
         $products = Products::find()->where(['isHit' => '1'])->all();
+        Yii::$app->cache->set('hitProducts', $products, 60*60);
 
         return $this->render('index', ['products' => $products]);
     }
